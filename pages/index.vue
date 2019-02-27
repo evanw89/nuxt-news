@@ -142,9 +142,9 @@
 
     <!-- App Content -->
     <div class="md-layout-item md-size-95">
-      <md-content class="md-layout md-gutter" style="background-color: #007998; padding: 1rem;">
+      <md-content class="md-layout md-gutter md-alignment-top-center" style="background-color: #007998; padding: 1rem;">
         <ul 
-          class="md-layout-item md-large-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100"
+          class="md-layout-item md-xlarge-size-15 md-large-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100"
           v-for="headline in headlines" 
           :key="headline.id">
           
@@ -272,7 +272,9 @@ export default {
       this.$store.commit("setCategory", category);
       await this.$store.dispatch(
         "loadHeadlines",
-        `/api/top-headlines?country=${this.country}&category=${this.category}`
+        `https://newsapi.org/v2/top-headlines?country=${
+          this.country
+        }&category=${this.category}`
       );
     },
     async addHeadlineToFeed(headline) {
@@ -288,16 +290,18 @@ export default {
         this.$store.commit("setSource", sourceId);
         await this.$store.dispatch(
           "loadHeadlines",
-          `/api/top-headlines?sources=${this.source}`
+          `https://newsapi.org/v2/top-headlines?sources=${this.source}`
         );
       }
     },
     async searchHeadlines() {
       await this.$store.dispatch(
         "loadHeadlines",
-        `/api/everything?q=${this.query}&from=${this.dateToISOString(
-          this.fromDate
-        )}&to=${this.dateToISOString(this.toDate)}&sortBy=${this.sortBy}`
+        `https://newsapi.org/v2/everything?q=${
+          this.query
+        }&from=${this.dateToISOString(this.fromDate)}&to=${this.dateToISOString(
+          this.toDate
+        )}&sortBy=${this.sortBy}`
       );
       this.showSearchDialog = false;
     },
