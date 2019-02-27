@@ -1,6 +1,6 @@
 import Vuex from "vuex";
 import md5 from "md5";
-import slugify from "Slugify";
+import slugify from "slugify";
 import db from "~/plugins/firestore";
 import { saveUserData, clearUserData } from "~/utils";
 import defaultImage from "~/assets/default-image.jpg";
