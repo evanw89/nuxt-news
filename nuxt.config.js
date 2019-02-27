@@ -62,7 +62,7 @@ module.exports = {
    */
   axios: {
     credentials: true
-    // proxy: true
+    proxy: true
   },
   // PROXIES NOT COMPILING CORRECTLY WITH NETLIFY--DON'T KNOW WHY!
   // proxy: {
