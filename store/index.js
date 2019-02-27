@@ -100,7 +100,7 @@ export const actions = {
         if (userPayload.action === "register")
           return "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyB1X99UPrNfDqMMNHK-S-udz9g_gTmS4T8";
       };
-      const authUserData = await this.$axios.$post(`/${endpoint}/`, {
+      const authUserData = await this.$axios.$post(`/${endpoint()}/`, {
         email: userPayload.email,
         password: userPayload.password,
         returnSecureToken: userPayload.returnSecureToken
