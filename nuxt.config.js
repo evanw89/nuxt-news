@@ -61,25 +61,26 @@ module.exports = {
    ** Axios module configuration
    */
   axios: {
-    credentials: true,
-    proxy: true
+    credentials: true
+    // proxy: true
   },
-  proxy: {
-    "/api/": {
-      target: "https://newsapi.org/v2/",
-      pathRewrite: { "^/api/": "" }
-    },
-    "/register/": {
-      target:
-        "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyB1X99UPrNfDqMMNHK-S-udz9g_gTmS4T8",
-      pathRewrite: { "^/register/": "" }
-    },
-    "/login/": {
-      target:
-        "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyB1X99UPrNfDqMMNHK-S-udz9g_gTmS4T8",
-      pathRewrite: { "^/login/": "" }
-    }
-  },
+  // PROXIES NOT COMPILING CORRECTLY WITH NETLIFY--DON'T KNOW WHY!
+  // proxy: {
+  //   "/api/": {
+  //     target: "https://newsapi.org/v2/",
+  //     pathRewrite: { "^/api/": "" }
+  //   },
+  //   "/register/": {
+  //     target:
+  //       "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyB1X99UPrNfDqMMNHK-S-udz9g_gTmS4T8",
+  //     pathRewrite: { "^/register/": "" }
+  //   },
+  //   "/login/": {
+  //     target:
+  //       "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyB1X99UPrNfDqMMNHK-S-udz9g_gTmS4T8",
+  //     pathRewrite: { "^/login/": "" }
+  //   }
+  // },
   env: {
     NEWS_API_KEY: "eb85487dcf1d45d5aa52c973e59ad105"
   },
