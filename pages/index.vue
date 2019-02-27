@@ -225,9 +225,9 @@ export default {
   async fetch({ store }) {
     await store.dispatch(
       "loadHeadlines",
-      `/api/top-headlines?country=${store.state.country}&category=${
-        store.state.category
-      }`
+      `https://newsapi.org/v2/top-headlines?country=${
+        store.state.country
+      }&category=${store.state.category}`
     );
     await store.dispatch("loadUserFeed");
   },
