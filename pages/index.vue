@@ -261,7 +261,9 @@ export default {
     async country() {
       await this.$store.dispatch(
         "loadHeadlines",
-        `/api/top-headlines?country=${this.country}&category=${this.category}`
+        `https://newsapi.org/v2/top-headlines?country=${
+          this.country
+        }&category=${this.category}`
       );
     }
   },

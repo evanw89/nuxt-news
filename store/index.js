@@ -94,7 +94,13 @@ export const actions = {
     try {
       commit("setLoading", true);
 
-      const authUserData = await this.$axios.$post(`/${userPayload.action}/`, {
+      const endpoint = () => {
+        if (userPayload.action === "login")
+          return "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyB1X99UPrNfDqMMNHK-S-udz9g_gTmS4T8";
+        if (userPayload.action === "register")
+          return "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyB1X99UPrNfDqMMNHK-S-udz9g_gTmS4T8";
+      };
+      const authUserData = await this.$axios.$post(`/${endpoint}/`, {
         email: userPayload.email,
         password: userPayload.password,
         returnSecureToken: userPayload.returnSecureToken
